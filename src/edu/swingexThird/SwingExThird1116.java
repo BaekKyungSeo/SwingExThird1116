@@ -10,6 +10,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 
 class Sub extends JFrame implements ActionListener
@@ -48,15 +49,19 @@ class Sub extends JFrame implements ActionListener
 	}
 	public void start()
 	{
-		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		tf.addActionListener(this);
+		dlg.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 	}
 	
 	
 	//Ctrl + Shift + 'o'
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getSource() == tf)
+		{
+			dlg.setVisible(true);
+		}
 	}
 	
 }
